@@ -1,0 +1,27 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "D:/vs2019/VC/Tools/MSVC/14.26.28801/include",
+                "D:/Windows Kits/10/include/10.0.18362.0/ucrt",
+                "D:/Windows Kits/10/include/10.0.18362.0/shared",
+                "D:/Windows Kits/10/include/10.0.18362.0/um",
+                "D:/Windows Kits/10/include/10.0.18362.0/winrt",
+                // "${workspaceFolder}/**",
+                "${workspaceFolder}/lib"
+                // "D:/All_programs/C++/JianZhiOffer/lib"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "compilerPath": "D:/vs2019/VC/Tools/MSVC/14.26.28801/bin/Hostx64/x64/cl.exe",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "windows-msvc-x64"
+        }
+    ],
+    "version": 4
+}
