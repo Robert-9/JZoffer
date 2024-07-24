@@ -42,6 +42,9 @@
         "ctime": "cpp",
         "iomanip": "cpp",
         "xlocmon": "cpp",
-        "xloctime": "cpp"
+        "xloctime": "cpp",
+        "algorithm": "cpp",
+        "deque": "cpp",
+        "queue": "cpp"
     }
 }
