@@ -5,6 +5,10 @@
         平衡二叉树（Balanced Binary Tree），具有以下性质：它是一棵空树或它的左右两个子树的高度差的绝对值不超过1，并且左右两个子树都是一棵平衡二叉树。
 
     测试已通过！
+
+    GPT的意见：
+        递归计算深度，重复计算，影响性能。  
+        可以使用递归函数同时计算深度和判断平衡：在递归过程中，如果子树不平衡，直接返回 -1，否则返回子树的高度。
 */
 
 #include <iostream>
@@ -27,7 +31,6 @@ private:
     }
     bool Helper(TreeNode* pRoot){
         if(pRoot == nullptr) return true;
-
         
         if(pRoot->left == nullptr && pRoot->right == nullptr){
             return true;
