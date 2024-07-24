@@ -8,7 +8,6 @@
 */
 #include <vector>
 #include <iostream>
-#include <queue>
 
 struct TreeNode {
 	int val;
