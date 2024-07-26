@@ -3,6 +3,8 @@
         操作给定的二叉树，将其变换为源二叉树的镜像。
 
     测试通过！
+    思路为递归交换左右子树，深度优先，先搜索到最底端，从底往上逐层交换。
+
     GPT给出的意见：
         冗余判断：
             在交换左右子树时，已经有递归调用遍历左右子树，额外判断左右子树是否为空没有必要。
@@ -41,7 +43,7 @@ private:
         else if(pRoot->right == nullptr){
             pRoot->right = pRoot->left;
             pRoot->left = nullptr;
-        }
+        }  // 上面两个的逻辑确实是冗余的，就算是空也是一样的直接交换没区别
         else{
             tempNode = pRoot->left;
             pRoot->left = pRoot->right;
