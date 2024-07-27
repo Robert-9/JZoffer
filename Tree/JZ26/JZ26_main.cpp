@@ -48,9 +48,9 @@ private:
         bool is = false;
         if(root1 == nullptr) return false;
 
-        if(root1->val == root2->val){
+        // if(root1->val == root2->val){
             is = isSubtree(root1, root2) == nullptr;
-        }
+        // }
         return is || Preoder(root1->left, root2) || Preoder(root1->right, root2);
     }
 
