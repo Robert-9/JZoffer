@@ -1,5 +1,11 @@
 /*
     请实现一个函数用来判断字符串str是否表示数值（包括科学计数法的数字，小数和整数）。
+
+    测试已通过
+    相较于answer，逻辑复杂一些。区别在于一开始理解错了题目的意思，
+        输入只会有一段有内容的字符串，即"空格 内容 空格"  不会用空格区分多组内容
+        所以answer中用的是按index顺序读，不需要循环。有整数再看有没有小数点，再看有没有e，
+        只有判断整数需要单独的函数其他的情况可以顺序只执行一次。
 */
 #include <string>
 #include <vector>
@@ -71,12 +77,12 @@ public:
             vector<char> strVec;
             int start = 0;
 
-            // if(str[index] == ' ') continue;
+            if(str[index] == ' ') continue;
 
-            if( !(str[index] == '+' || str[index] == '-'  || str[index] == '.' || str[index] == 'e'
-                    || (str[index] <= '9' && str[index] >= '0')) ){
-                        continue;
-                    }
+            // if( !(str[index] == '+' || str[index] == '-'  || str[index] == '.' || str[index] == 'e'
+            //         || (str[index] <= '9' && str[index] >= '0')) ){
+            //             continue;
+            //         }
             else{
                 start = index;
                 while(index <str.size() && str[index] != ' '){
@@ -93,3 +99,9 @@ public:
     }
 };
 
+int main(){
+    Solution solution;
+    bool res = solution.isNumeric("a11");
+    cout << "result is "<< res;
+
+}
