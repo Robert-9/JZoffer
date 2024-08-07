@@ -32,7 +32,7 @@ void maxHeapify(vector<int>& heap, int index){
 
         if(largest != index){
             swap(heap[index], heap[largest]);  // largest是左或右节点的索引，交换两个元素的位置
-            minHeapify(heap, largest);  // 再以左或右节点为堆顶，维持其子树的最小堆性质
+            maxHeapify(heap, largest);  // 再以左或右节点为堆顶，维持其子树的最小堆性质
         }
     }
     void minHeapify(vector<int>& heap, int index){
