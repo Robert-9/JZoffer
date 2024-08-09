@@ -13,29 +13,20 @@ class Solution {
 public:
     int GetUglyNumber_Solution(int index) {
         if(index == 1) return 1;
-        int nums=1;
-        int i=0, j=0, k=0;
-        int prev = 1;
-        while(nums <= index){
-            int mul_2 = pow(2, i+1) * pow(3, j) * pow(5, k);
-            int mul_3 = pow(2, i) * pow(3, j+1) * pow(5, k);
-            int mul_5 = pow(2, i) * pow(3, j) * pow(5, k+1);
-            if(mul_2 < mul_3){
-                if(mul_2 < mul_5){
-                    i++;
-                }
-                else {
-                    k++;
-                }
-            }
-            else if(mul_3 < mul_5){
-                j++;
-            }
-            else k++;
+        int i=1, j=1, k=1;  // 分别保存前一个乘2 3 5 的数字
 
-            nums++;
+        vector<int> dp;  // 保存第n个丑数
+        dp.push_back(0); dp.push_back(1);
+
+        for(int current=2; current<index+1; current++){
+            dp.push_back( min( dp[i]*2, min(dp[j]*3, dp[k]*5) ) );
+
+            // 如果 dp[i]*2等于dp[j]*3, i j 在此处都会更新. 其他情况类似
+            if(dp[current] == dp[i]*2) i++;
+            if(dp[current] == dp[j]*3) j++;
+            if(dp[current] == dp[k]*5) k++;
         }
-        return pow(2, i) * pow(3, j) * pow(5, k);
+        return dp.back();
     }
 };
 
