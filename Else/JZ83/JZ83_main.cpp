@@ -6,13 +6,55 @@
     数据范围：
         2≤n≤10^14
     进阶：空间复杂度 O(1) ， 时间复杂度 O(logn)
+
+    测试已通过！
+    使用的是快速幂方法计算次方，函数入参 base 和 exp 都应设置为 long long 类型 不然会出错
 */
 
 #include <vector>
 
+#define MOD 998244353
+
 class Solution {
+private:
+    long long fastPower(long long base, long long exp){
+        // 使用快速幂方法 计算 base^exp
+        long long result = 1;
+        while(exp > 0){
+            if(exp & 1){
+                result = result * base %  MOD;
+            }
+            exp = exp >> 1;
+            base = base * base %  MOD;
+        }
+        return result;
+    }
 public:
     long long cutRope(long long number) {
-        
+        long long result;
+        if(number == 2) return 1;
+        if(number == 3) return 2;
+        if(number == 4) return 4;
+
+        if(number%3 == 0){
+            result = fastPower(3, number/3);
+            return result;
+        }
+        if(number%3 == 1){
+            result =  fastPower(3, number/3-1);
+            result = result * 4 % MOD;
+            return result; 
+        }
+        if(number%3 == 2){
+            result = fastPower(3, number/3);
+            result = result * 2 % MOD;
+            return result;
+        }
+        return 0;
     }
 };
+
+int main(){
+    Solution solution;
+    solution.cutRope(999999999);
+}
